@@ -48,6 +48,7 @@ int main(int argc, char *argv[]) {
 	//set connection settings
 	struct sockaddr_in sad;
 	memset(&sad, 0, sizeof(sad)); // ensures that extra bytes contain 0 sad.sin_family = AF_INET;
+	sad.sin_family = AF_INET;
 	sad.sin_addr.s_addr = inet_addr("127.0.0.1");
 	sad.sin_port = htons(PROTO_PORT); /* converts values between the host and network byte order. Specifically, htons() converts 16-bit quantities from host byte order to network byte order. */
 	if (bind(my_socket, (struct sockaddr*) &sad, sizeof(sad)) < 0) {
